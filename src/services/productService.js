@@ -5,7 +5,17 @@ const getAllProducts = async (category, activeOnly) => {
     category || null,
     activeOnly !== undefined ? activeOnly : null
   ]);
-  return rows[0]; // First result set
+  
+  const products = rows[0]; // First result set: Products
+  const images = rows[1]; // Second result set: Product Images
+
+  // Map images to their respective products
+  return products.map(product => {
+    return {
+      ...product,
+      images: images.filter(img => img.product_id === product.id)
+    };
+  });
 };
 
 const getProductById = async (id) => {

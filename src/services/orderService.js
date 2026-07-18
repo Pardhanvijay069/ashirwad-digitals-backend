@@ -72,7 +72,7 @@ const getOrderDetailsById = async (orderId) => {
     throw new Error('Order not found');
   }
 
-  return { ...order, items };
+  return { order, items };
 };
 
 const getOrderDetailsByToken = async (token) => {

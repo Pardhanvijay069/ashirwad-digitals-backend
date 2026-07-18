@@ -48,7 +48,7 @@ const placeOrder = async (req, res, next) => {
       // We can fetch the order details to get the exact total amount for the email.
       orderService.getOrderDetailsById(result.order_id)
         .then(details => {
-          sendOrderConfirmation(req.body.customer_email, result.order_number, result.tracking_token, details.total_amount);
+          sendOrderConfirmation(req.body.customer_email, result.order_number, result.tracking_token, details.order.total_amount);
         })
         .catch(err => logger.error(`Failed to fetch order details for email: ${err.message}`));
     }

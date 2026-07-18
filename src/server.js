@@ -18,7 +18,7 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 26632;
 
 const server = http.createServer(app);
 
