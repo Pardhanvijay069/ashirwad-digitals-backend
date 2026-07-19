@@ -12,6 +12,7 @@ const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
+app.set("trust proxy", true);
 // Security Middlewares
 app.use(helmet());
 // app.use(cors({
