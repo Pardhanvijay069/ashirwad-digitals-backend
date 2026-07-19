@@ -52,6 +52,22 @@ app.use('/api/admin/products', require('./routes/adminProductRoutes'));
 app.use('/api', orderRoutes);
 app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
 
+// Root Route (Railway Health Check)
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Ashirwad Digitals Backend is running 🚀'
+  });
+});
+
+// Health Check
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server is healthy'
+  });
+});
+
 // Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({ success: true, message: 'Server is healthy' });
